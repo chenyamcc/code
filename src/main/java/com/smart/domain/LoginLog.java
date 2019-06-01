@@ -7,7 +7,7 @@ import java.util.Date;
  * @author maybe
  * @title: LoginLog
  * @projectName chapter2
- * @description: TODO
+ * @description: 用户登录日志类
  * @date 19/06/01 上午 1:07
  */
 public class LoginLog implements Serializable {

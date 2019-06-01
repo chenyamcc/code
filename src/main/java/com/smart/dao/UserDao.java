@@ -47,7 +47,8 @@ public class UserDao {
         return user;
     }
     public void updateLoginInfo(User user) {
-        template.update(UPDATE_LOGIN_INFO_SQL, user.getLastVisit(),user.getLastIp(),
-                user.getCredits(),user.getUserId());
+        Object[] args = {user.getLastVisit(),user.getLastIp(),
+                user.getCredits(),user.getUserId()};
+        template.update(UPDATE_LOGIN_INFO_SQL, args);
     }
 }
