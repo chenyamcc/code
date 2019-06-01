@@ -13,7 +13,7 @@ import java.sql.SQLException;
  * @author maybe
  * @title: UserDao
  * @projectName chapter2
- * @description: TODO
+ * @description: 用户类的数据访问层
  * @date 19/06/01 上午 9:18
  */
 @Repository
@@ -22,7 +22,7 @@ public class UserDao {
     private final static String MATCH_COUNT_SQL = "SELECT count(*) from t_user where user_name =?" +
             "AND password=?";
     private final static String UPDATE_LOGIN_INFO_SQL ="UPDATE t_user SET last_visit=?,last_ip=?," +
-            "credits=? where uid=?";
+            "credits=? where user_id=?";
 
     @Autowired
     public void setTemplate(JdbcTemplate template) {
@@ -47,7 +47,7 @@ public class UserDao {
         return user;
     }
     public void updateLoginInfo(User user) {
-        template.update(UPDATE_LOGIN_INFO_SQL,new Object[]{user.getLastVisit(),user.getLastIp(),
-                user.getCredits(),user.getUserId()});
+        template.update(UPDATE_LOGIN_INFO_SQL, user.getLastVisit(),user.getLastIp(),
+                user.getCredits(),user.getUserId());
     }
 }
